@@ -5,6 +5,7 @@
 	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 @-moz-keyframes spinner {
@@ -1203,7 +1204,7 @@ input, select, textarea {
 			background-image: -ms-linear-gradient(to left, rgba(31,34,36,0.35), rgba(31,34,36,0) 10em, rgba(31,34,36,0)), -ms-linear-gradient(to right, rgba(31,34,36,0.35), rgba(31,34,36,0) 10em, rgba(31,34,36,0));
 			background-image: linear-gradient(to left, rgba(31,34,36,0.35), rgba(31,34,36,0) 10em, rgba(31,34,36,0)), linear-gradient(to right, rgba(31,34,36,0.35), rgba(31,34,36,0) 10em, rgba(31,34,36,0));
 			content: '';
-			display: block;
+			display: none;
 			height: 100%;
 			left: 0;
 			position: absolute;
@@ -1265,10 +1266,6 @@ input, select, textarea {
 
 		.poptrox-popup .caption {
 			padding: 2em 2em 0.1em 2em ;
-			background-image: -moz-linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%);
-			background-image: -webkit-linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%);
-			background-image: -ms-linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%);
-			background-image: linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%);
 			bottom: 0;
 			cursor: default;
 			left: 0;
