@@ -1211,7 +1211,11 @@ input, select, textarea {
 			top: 0;
 			width: 100%;
 			z-index: 1;
-			opacity: 1;
+			opacity: 0;
+		}
+
+		.poptrox-popup:hover:before {
+   			 opacity: 1;
 		}
 
 		.poptrox-popup .closer {
@@ -1277,6 +1281,12 @@ input, select, textarea {
 			text-align: left;
 			width: 100%;
 			z-index: 2;
+
+			opacity: 0;
+		}
+
+		.poptrox-popup:hover .caption {
+   			 opacity: 1;
 		}
 
 			.poptrox-popup .caption h2, .poptrox-popup .caption h3, .poptrox-popup .caption h4, .poptrox-popup .caption h5, .poptrox-popup .caption h6 {
@@ -2049,4 +2059,5 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
 
