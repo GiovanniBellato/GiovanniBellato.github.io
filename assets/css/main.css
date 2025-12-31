@@ -1265,6 +1265,10 @@ input, select, textarea {
 		}
 
 		.poptrox-popup .caption {
+			-moz-transition: opacity 0.2s ease-in-out;
+			-webkit-transition: opacity 0.2s ease-in-out;
+			-ms-transition: opacity 0.2s ease-in-out;
+			transition: opacity 0.2s ease-in-out;
 			padding: 2em 2em 0.1em 2em ;
 			bottom: 0;
 			cursor: default;
@@ -2045,3 +2049,4 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
