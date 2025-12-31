@@ -1716,7 +1716,7 @@ input, select, textarea {
 			-ms-transition-delay: 2.525s;
 			transition-delay: 2.525s;
 			height: calc(40vh - 2em);
-			min-height: 20em;
+			min-height: auto;
 			width: 25%;
 		}
 
@@ -1813,7 +1813,7 @@ input, select, textarea {
 				transition-delay: 2.075s;
 				height: calc(40vh - 2em);
 				min-height: 20em;
-				width: 33.33333%;
+				width: 25%;
 			}
 
 				#main .thumb:nth-child(1) {
@@ -2059,5 +2059,6 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
 
 
