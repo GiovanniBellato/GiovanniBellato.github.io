@@ -2063,6 +2063,17 @@ input, select, textarea {
 			color: inherit;
 		}
 
+/* FIX: Nasconde completamente il pannello About quando un'immagine è aperta */
+body.modal-active .panel {
+    display: none !important;
+    visibility: hidden !important;
+    z-index: -9999;
+}
+
+/* FIX OPZIONALE: Blocca lo scorrimento della pagina di sfondo quando l'immagine è aperta */
+body.modal-active {
+    overflow: hidden;
+}
 
 
 
