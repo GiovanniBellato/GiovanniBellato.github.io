@@ -1810,6 +1810,23 @@ body.modal-active {
 		color: #555555 !important;
 	}
 
+/* Tasto About: icona e testo allineati al colore del menu */
+	#header nav > ul > li a.icon {
+		color: #555555 !important;
+	}
+
+		#header nav > ul > li a.icon:before {
+			color: #555555 !important;
+			float: none;
+			margin-right: 0.4em;
+			margin-left: 0;
+		}
+
+		#header nav > ul > li a.icon:hover,
+		#header nav > ul > li a.icon:hover:before {
+			color: #000000 !important;
+		}
+
 @media screen and (max-width: 736px) {
 	#header h1                    { font-size: 1.1em !important; }
 	#header nav > ul > li a       { font-size: 1em !important; }
