@@ -1740,28 +1740,24 @@ body.modal-active {
 /* ============================================================
    OVERRIDE LAYOUT MASONRY (#main)
    Sovrascrive il layout flex del template originale con un
-   layout a colonne CSS (masonry-like) per rispettare le
-   proporzioni reali di ogni foto.
+   layout Masonry.js a colonne proporzionali.
    ============================================================ */
 
-/* Layout Masonry: gutter fisso 16px, padding esterno 16px.
-   Formule: larghezza = (100% - (N-1) × 16px) / N colonne */
 #main {
     display: block !important;
-    padding: 16px !important;
+    padding: 8px !important;
 }
 
-/* 4 colonne desktop: (100% - 3×16px) / 4 */
-#main .grid-sizer,
-#main .thumb {
-    width: calc((100% - 48px) / 4) !important;
-}
+/* Larghezze in % pure — Masonry usa queste per posizionare le colonne.
+   Il gutter nello script JS è 0, la spaziatura è gestita solo col margin. */
+#main .grid-sizer { width: 24% !important; }
+#main .thumb      { width: 24% !important; margin: 0.5% !important; }
+#main .thumb.wide { width: 49% !important; }
 
 #main .thumb {
     height: auto !important;
     min-height: 0 !important;
     display: block !important;
-    margin-bottom: 16px !important;
     line-height: 0;
 }
 
@@ -1780,30 +1776,25 @@ body.modal-active {
     opacity: 1 !important;
 }
 
-/* Panoramiche: 2 colonne → (100% - 1×16px) / 2 × 2 + 16px = 2 unità + 1 gap */
-#main .thumb.wide {
-    width: calc((100% - 48px) / 4 * 2 + 16px) !important;
-}
-
-/* Tablet largo ≤1280px: 3 colonne → (100% - 2×16px) / 3 */
+/* Tablet largo: 3 colonne */
 @media screen and (max-width: 1280px) {
-    #main .grid-sizer,
-    #main .thumb      { width: calc((100% - 32px) / 3) !important; }
-    #main .thumb.wide { width: calc((100% - 32px) / 3 * 2 + 16px) !important; }
+    #main .grid-sizer { width: 32.333% !important; }
+    #main .thumb      { width: 32.333% !important; }
+    #main .thumb.wide { width: 65.666% !important; }
 }
 
-/* Tablet ≤980px: 2 colonne → (100% - 1×16px) / 2 */
+/* Tablet: 2 colonne */
 @media screen and (max-width: 980px) {
-    #main .grid-sizer,
-    #main .thumb      { width: calc((100% - 16px) / 2) !important; }
-    #main .thumb.wide { width: 100% !important; }
+    #main .grid-sizer { width: 49% !important; }
+    #main .thumb      { width: 49% !important; }
+    #main .thumb.wide { width: 99% !important; }
 }
 
-/* Mobile ≤480px: 1 colonna */
+/* Mobile: 1 colonna */
 @media screen and (max-width: 480px) {
     #main .grid-sizer,
     #main .thumb,
-    #main .thumb.wide { width: 100% !important; }
+    #main .thumb.wide { width: 99% !important; }
 }
 
 
