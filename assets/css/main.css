@@ -164,7 +164,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		background: #f5f5f2;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
