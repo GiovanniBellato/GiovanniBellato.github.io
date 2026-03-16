@@ -2148,6 +2148,36 @@ body.modal-active {
     #header nav > ul > li a { font-size: 1em !important; }
 }
 
+#wrapper:after {
+    background: rgba(245, 245, 242, 0.95) !important; 
+}
+
+/* 2. Sfondo del box della foto e ombreggiatura morbida */
+.poptrox-popup {
+    background: #f5f5f2 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; /* Ombra molto più delicata */
+}
+
+/* 3. Eliminiamo le vecchie sfumature nere laterali (il problema che vedevi) */
+.poptrox-popup:before {
+    display: none !important;
+}
+
+/* 4. Testo della didascalia sotto la foto: lo rendiamo scuro */
+.poptrox-popup .caption h2, 
+.poptrox-popup .caption h3, 
+.poptrox-popup .caption p {
+    color: #333333 !important;
+}
+
+/* 5. Adattiamo i pulsanti (Frecce e X di chiusura) */
+/* Siccome i pulsanti originali sono icone bianche, le invertiamo per farle diventare scure */
+.poptrox-popup .nav-previous,
+.poptrox-popup .nav-next,
+.poptrox-popup .closer {
+    filter: invert(0.8) !important; 
+}
+
 /* 5. Rendiamo il tutto Responsive per tablet e cellulari */
 @media screen and (max-width: 1680px) {
     #main { column-count: 4; }
