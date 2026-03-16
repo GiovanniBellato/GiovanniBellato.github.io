@@ -25,6 +25,7 @@
 
 				<!-- Main -->
 					<div id="main">
+						<div class="grid-sizer"></div>
 						<article class="thumb">
 							<a href="https://res.cloudinary.com/dtvnu3gme/image/upload/v1773678943/DSCF2416_dvepms.jpg" class="image"><img src="https://res.cloudinary.com/dtvnu3gme/image/upload/v1773678943/DSCF2416_dvepms.jpg" alt="" /></a>
 							<h2></h2>
@@ -119,7 +120,7 @@
 										<li><a href="https://www.instagram.com/giobellato" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 										<li><a href="https://github.com/GiovanniBellato" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 										<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="mailto:info.giobellato@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="/cdn-cgi/l/email-protection#3f56515950115856505d5a53535e4b507f58525e5653115c5052" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 									</ul>
 								</section>
 								<p class="copyright">
@@ -154,7 +155,7 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+			<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
@@ -171,31 +172,16 @@
 			<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 			<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 			<script>
-  				imagesLoaded('#main', function() {
-    			new Masonry('#main', {
-      				itemSelector: '.thumb',
-      				columnWidth: '.thumb',
-      				percentPosition: true,
-      				gutter: 20
-    			});
-  			});
+				imagesLoaded('#main', function() {
+					new Masonry('#main', {
+						itemSelector: '.thumb',
+						columnWidth: '.grid-sizer',
+						percentPosition: true,
+						gutter: 20
+					});
+				});
 			</script>
-
 
 	</body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
