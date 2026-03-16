@@ -1779,6 +1779,10 @@ body.modal-active {
     opacity: 1 !important;
 }
 
+#main .thumb.wide {
+    width: calc(50% - 10px) !important;
+}
+
 @media screen and (max-width: 1280px) { #main .thumb { width: calc(33.333% - 14px) !important; } }
 @media screen and (max-width: 980px)  { #main .thumb { width: calc(50% - 10px) !important; } }
 @media screen and (max-width: 480px)  { #main .thumb { width: calc(100%) !important; } }
