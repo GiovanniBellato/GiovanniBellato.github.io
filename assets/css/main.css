@@ -1760,6 +1760,13 @@ body.modal-active {
     break-inside: avoid !important;
     -webkit-column-break-inside: avoid !important;
     line-height: 0;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#main .thumb:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
 }
 
 /* Rimuove lo sfondo CSS del template, mostra il vero <img> */
