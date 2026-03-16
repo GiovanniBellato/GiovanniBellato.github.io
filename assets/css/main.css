@@ -2075,6 +2075,51 @@ body.modal-active {
     overflow: hidden;
 }
 
+#main {
+    display: block !important; 
+    column-count: 4; /* Numero di colonne su PC */
+    column-gap: 0; /* Nessuno spazio tra le colonne, in stile Multiverse */
+}
+
+/* 2. Adattiamo i contenitori delle singole foto (thumb) */
+#main .thumb {
+    width: 100% !important; /* Usa tutta la larghezza della colonna */
+    height: auto !important; /* Rimuove l'altezza fissa che ritagliava le foto */
+    min-height: 0 !important;
+    break-inside: avoid; /* Evita che una foto venga spezzata tra due colonne */
+    margin: 0 !important;
+    display: inline-block; /* Necessario per il masonry fluido */
+}
+
+/* 3. Disabilitiamo lo sfondo ritagliato generato dal template */
+#main .thumb > .image {
+    position: relative !important;
+    height: auto !important;
+    background-image: none !important; 
+}
+
+/* 4. Rendiamo visibile l'immagine reale (<img />) con le sue vere proporzioni */
+#main .thumb > .image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important; /* Il template originale a volte le nasconde */
+}
+
+/* 5. Rendiamo il tutto Responsive per tablet e cellulari */
+@media screen and (max-width: 1680px) {
+    #main { column-count: 4; }
+}
+@media screen and (max-width: 1280px) {
+    #main { column-count: 3; }
+}
+@media screen and (max-width: 980px) {
+    #main { column-count: 2; }
+}
+@media screen and (max-width: 480px) {
+    #main { column-count: 1; }
+}
 
 
 
