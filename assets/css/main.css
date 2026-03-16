@@ -2163,20 +2163,7 @@ body.modal-active {
     display: none !important;
 }
 
-/* 4. Testo della didascalia sotto la foto: lo rendiamo scuro */
-.poptrox-popup .caption h2, 
-.poptrox-popup .caption h3, 
-.poptrox-popup .caption p {
-    color: #333333 !important;
-}
 
-/* 5. Adattiamo i pulsanti (Frecce e X di chiusura) */
-/* Siccome i pulsanti originali sono icone bianche, le invertiamo per farle diventare scure */
-.poptrox-popup .nav-previous,
-.poptrox-popup .nav-next,
-.poptrox-popup .closer {
-    filter: invert(0.8) !important; 
-}
 
 /* 5. Rendiamo il tutto Responsive per tablet e cellulari */
 @media screen and (max-width: 1680px) {
