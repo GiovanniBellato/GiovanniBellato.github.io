@@ -1847,3 +1847,94 @@ body.modal-active {
 @media screen and (max-width: 1280px) { #main { column-count: 3; } }
 @media screen and (max-width: 980px)  { #main { column-count: 2; } }
 @media screen and (max-width: 480px)  { #main { column-count: 1; } }
+
+
+/* ============================================================
+   OVERRIDE PANEL (tema chiaro)
+   Porta il pannello About allo stesso tema chiaro (#f5f5f2)
+   della homepage: sfondo beige, testi scuri, bordo sottile in cima.
+   ============================================================ */
+
+.panel {
+	background: rgba(245, 245, 242, 0.98) !important;
+	border-top: 1px solid #e0e0dc !important;
+}
+
+/* Testi principali: grigio scuro invece del bianco del tema dark */
+.panel h2 {
+	color: #2a2a2a !important;
+}
+
+.panel p,
+.panel label {
+	color: #555555 !important;
+}
+
+/* Link: mantiene l'accento verde ma su sfondo chiaro */
+.panel a {
+	color: #34a58e !important;
+}
+
+.panel a:hover {
+	color: #287e6d !important;
+}
+
+/* Icone social */
+.panel ul.icons li .icon {
+	color: #888888 !important;
+}
+
+.panel ul.icons li a:hover .icon,
+.panel ul.icons li a:hover {
+	color: #34a58e !important;
+}
+
+/* Copyright */
+.panel .copyright {
+	color: #999999 !important;
+}
+
+.panel .copyright a {
+	color: #777777 !important;
+}
+
+/* Campi del form */
+.panel input[type="text"],
+.panel input[type="email"],
+.panel textarea {
+	background: #ebebea !important;
+	color: #333333 !important;
+	border: 1px solid #d5d5d0 !important;
+}
+
+.panel input[type="text"]:focus,
+.panel input[type="email"]:focus,
+.panel textarea:focus {
+	box-shadow: inset 0 0 0 2px #34a58e !important;
+}
+
+/* Bottone invia */
+.panel input[type="submit"].primary {
+	background-color: #34a58e !important;
+	color: #ffffff !important;
+}
+
+.panel input[type="submit"].primary:hover {
+	background-color: #287e6d !important;
+}
+
+/* Bottone reset */
+.panel input[type="reset"] {
+	box-shadow: inset 0 0 0 2px #cccccc !important;
+	color: #777777 !important;
+}
+
+.panel input[type="reset"]:hover {
+	box-shadow: inset 0 0 0 2px #34a58e !important;
+	color: #34a58e !important;
+}
+
+/* Icona di chiusura del panel: scura su sfondo chiaro */
+.panel > .closer {
+	filter: invert(1) brightness(0.4) !important;
+}
