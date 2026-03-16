@@ -1814,7 +1814,7 @@ body.modal-active {
 /* Tasto About: testo e icona bianchi, coerenti con il resto del menu */
 	#header nav > ul > li a.icon,
 	#header nav > ul > li a.icon:before {
-		color: #ffffff !important;
+		color: #555555 !important;
 		float: none;
 		margin-right: 0.4em;
 		margin-left: 0;
