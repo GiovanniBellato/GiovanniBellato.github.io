@@ -173,19 +173,30 @@
 			<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 			<script>
 				imagesLoaded('#main', function() {
-					document.querySelectorAll('#main .thumb img').forEach(function(img) {
-						var ratio = img.naturalWidth / img.naturalHeight;
-						if (ratio > 1.6) {
-							img.closest('.thumb').classList.add('wide');
-						}
-					});
 					new Masonry('#main', {
 						itemSelector: '.thumb',
 						columnWidth: '.grid-sizer',
 						percentPosition: true,
-						gutter: 20
+						gutter: 16
 					});
 				});
+			</script>
+
+			<script>
+    		imagesLoaded('#main', function() {
+        	document.querySelectorAll('#main .thumb img').forEach(function(img) {
+            var ratio = img.naturalWidth / img.naturalHeight;
+            if (ratio > 1.6) {
+                img.closest('.thumb').classList.add('wide');
+            }
+        	});
+       		 new Masonry('#main', {
+            itemSelector: '.thumb',
+            columnWidth: '.grid-sizer',
+            percentPosition: true,
+            gutter: 20
+        	});
+    		});
 			</script>
 
 	</body>

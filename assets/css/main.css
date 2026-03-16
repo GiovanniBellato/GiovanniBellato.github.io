@@ -1744,48 +1744,52 @@ body.modal-active {
    proporzioni reali di ogni foto.
    ============================================================ */
 
+/* Gap uniforme usato sia da Masonry (gutter) che dai margini CSS.
+   Cambia solo questa variabile per aggiustare tutta la spaziatura. */
 #main {
     display: block !important;
-    padding: 20px !important;
+    padding: 16px !important;
 }
 
-/* Elemento di riferimento invisibile usato da Masonry.js per calcolare la larghezza colonna */
+/* Elemento invisibile di riferimento larghezza colonna per Masonry.js */
 #main .grid-sizer,
 #main .thumb {
-    width: calc(25% - 15px) !important; /* 4 colonne su desktop */
+    width: calc(25% - 12px) !important; /* 4 colonne: (100% - 3 gap da 16px) / 4 */
 }
 
 #main .thumb {
     height: auto !important;
     min-height: 0 !important;
     display: block !important;
-    margin-bottom: 20px !important;
-    break-inside: avoid;
+    margin-bottom: 16px !important; /* uguale al gutter orizzontale */
     line-height: 0;
 }
 
-/* Rimuove lo sfondo CSS del template, mostra il vero <img> */
-#main .thumb > .image {
-    position: relative !important;
-    height: auto !important;
-    background-image: none !important;
-}
-
-#main .thumb > .image img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
+/* Panoramiche: occupano 2 colonne */
 #main .thumb.wide {
-    width: calc(50% - 10px) !important;
+    width: calc(50% - 8px) !important; /* 2 colonne: (100% - 1 gap da 16px) / 2 */
 }
 
-@media screen and (max-width: 1280px) { #main .thumb { width: calc(33.333% - 14px) !important; } }
-@media screen and (max-width: 980px)  { #main .thumb { width: calc(50% - 10px) !important; } }
-@media screen and (max-width: 480px)  { #main .thumb { width: calc(100%) !important; } }
+/* Tablet largo: 3 colonne */
+@media screen and (max-width: 1280px) {
+    #main .grid-sizer,
+    #main .thumb         { width: calc(33.333% - 11px) !important; }
+    #main .thumb.wide    { width: calc(66.666% - 6px) !important; }
+}
+
+/* Tablet: 2 colonne */
+@media screen and (max-width: 980px) {
+    #main .grid-sizer,
+    #main .thumb         { width: calc(50% - 8px) !important; }
+    #main .thumb.wide    { width: calc(100%) !important; }
+}
+
+/* Mobile: 1 colonna */
+@media screen and (max-width: 480px) {
+    #main .grid-sizer,
+    #main .thumb,
+    #main .thumb.wide    { width: 100% !important; }
+}
 
 
 /* ============================================================
@@ -1862,19 +1866,14 @@ body.modal-active {
 
 /* ============================================================
    RESPONSIVE COLONNE MASONRY
-   Larghezze responsive per Masonry.js — column-count rimosso
-   perché incompatibile con il posizionamento via JavaScript.
+   Riduce il numero di colonne al diminuire della larghezza
+   dello schermo per mantenere le immagini leggibili.
    ============================================================ */
 
-@media screen and (max-width: 1280px) {
-    #main .grid-sizer, #main .thumb { width: calc(33.333% - 14px) !important; }
-}
-@media screen and (max-width: 980px) {
-    #main .grid-sizer, #main .thumb { width: calc(50% - 10px) !important; }
-}
-@media screen and (max-width: 480px) {
-    #main .grid-sizer, #main .thumb { width: 100% !important; }
-}
+@media screen and (max-width: 1680px) { #main { column-count: 4; } }
+@media screen and (max-width: 1280px) { #main { column-count: 3; } }
+@media screen and (max-width: 980px)  { #main { column-count: 2; } }
+@media screen and (max-width: 480px)  { #main { column-count: 1; } }
 
 
 /* ============================================================
