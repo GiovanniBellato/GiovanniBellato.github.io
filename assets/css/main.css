@@ -1744,24 +1744,24 @@ body.modal-active {
    proporzioni reali di ogni foto.
    ============================================================ */
 
-/* Gap uniforme usato sia da Masonry (gutter) che dai margini CSS.
-   Cambia solo questa variabile per aggiustare tutta la spaziatura. */
+/* Layout Masonry: gutter fisso 16px, padding esterno 16px.
+   Formule: larghezza = (100% - (N-1) × 16px) / N colonne */
 #main {
     display: block !important;
     padding: 16px !important;
 }
 
-/* Elemento invisibile di riferimento larghezza colonna per Masonry.js */
+/* 4 colonne desktop: (100% - 3×16px) / 4 */
 #main .grid-sizer,
 #main .thumb {
-    width: calc(25% - 12px) !important; /* 4 colonne: (100% - 3 gap da 16px) / 4 */
+    width: calc((100% - 48px) / 4) !important;
 }
 
 #main .thumb {
     height: auto !important;
     min-height: 0 !important;
     display: block !important;
-    margin-bottom: 16px !important; /* uguale al gutter orizzontale */
+    margin-bottom: 16px !important;
     line-height: 0;
 }
 
@@ -1780,30 +1780,30 @@ body.modal-active {
     opacity: 1 !important;
 }
 
-/* Panoramiche: occupano 2 colonne */
+/* Panoramiche: 2 colonne → (100% - 1×16px) / 2 × 2 + 16px = 2 unità + 1 gap */
 #main .thumb.wide {
-    width: calc(50% - 8px) !important; /* 2 colonne: (100% - 1 gap da 16px) / 2 */
+    width: calc((100% - 48px) / 4 * 2 + 16px) !important;
 }
 
-/* Tablet largo: 3 colonne */
+/* Tablet largo ≤1280px: 3 colonne → (100% - 2×16px) / 3 */
 @media screen and (max-width: 1280px) {
     #main .grid-sizer,
-    #main .thumb         { width: calc(33.333% - 11px) !important; }
-    #main .thumb.wide    { width: calc(66.666% - 6px) !important; }
+    #main .thumb      { width: calc((100% - 32px) / 3) !important; }
+    #main .thumb.wide { width: calc((100% - 32px) / 3 * 2 + 16px) !important; }
 }
 
-/* Tablet: 2 colonne */
+/* Tablet ≤980px: 2 colonne → (100% - 1×16px) / 2 */
 @media screen and (max-width: 980px) {
     #main .grid-sizer,
-    #main .thumb         { width: calc(50% - 8px) !important; }
-    #main .thumb.wide    { width: calc(100%) !important; }
+    #main .thumb      { width: calc((100% - 16px) / 2) !important; }
+    #main .thumb.wide { width: 100% !important; }
 }
 
-/* Mobile: 1 colonna */
+/* Mobile ≤480px: 1 colonna */
 @media screen and (max-width: 480px) {
     #main .grid-sizer,
     #main .thumb,
-    #main .thumb.wide    { width: 100% !important; }
+    #main .thumb.wide { width: 100% !important; }
 }
 
 
