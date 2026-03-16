@@ -1745,40 +1745,23 @@ body.modal-active {
    ============================================================ */
 
 #main {
-	display: block !important;
-	column-count: 4;
-	column-gap: 20px;
-	padding: 20px !important;
+    display: block !important;
+    padding: 20px !important;
 }
 
-	/* Ogni thumb occupa tutta la colonna e non viene spezzata */
-	#main .thumb {
-		width: 100% !important;
-		height: auto !important;
-		min-height: 0 !important;
-		display: block !important;
-		margin: 0 0 20px 0 !important;
-		break-inside: avoid;
-		page-break-inside: avoid;
-		-webkit-column-break-inside: avoid;
-		line-height: 0;
-	}
+#main .thumb {
+    width: calc(25% - 15px) !important; /* 4 colonne su desktop */
+    height: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+    margin-bottom: 20px !important;
+    break-inside: avoid;
+    line-height: 0;
+}
 
-	/* Rimuove lo sfondo CSS background-image del template originale */
-	#main .thumb > .image {
-		position: relative !important;
-		height: auto !important;
-		background-image: none !important;
-	}
-
-	/* Rende visibile il vero tag <img> con le proporzioni originali */
-	#main .thumb > .image img {
-		display: block !important;
-		width: 100% !important;
-		height: auto !important;
-		visibility: visible !important;
-		opacity: 1 !important;
-	}
+@media screen and (max-width: 1280px) { #main .thumb { width: calc(33.333% - 14px) !important; } }
+@media screen and (max-width: 980px)  { #main .thumb { width: calc(50% - 10px) !important; } }
+@media screen and (max-width: 480px)  { #main .thumb { width: calc(100%) !important; } }
 
 
 /* ============================================================
