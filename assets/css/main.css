@@ -1812,7 +1812,7 @@ body.modal-active {
 	}
 
 	#header h1 .portfolio-label {
-    color: #34a58e;       /* verde accento, lo stesso dei link */
+    color: #070707;       /* verde accento, lo stesso dei link */
     font-weight: 400;
     letter-spacing: 0.15em;
 }
@@ -1825,11 +1825,6 @@ body.modal-active {
 		margin-right: 0.4em;
 		margin-left: 0;
 	}
-
-		#header nav > ul > li a.icon:hover,
-		#header nav > ul > li a.icon:hover:before {
-			color: #ffffff !important;
-		}
 
 @media screen and (max-width: 736px) {
 	#header h1                    { font-size: 1.1em !important; }
