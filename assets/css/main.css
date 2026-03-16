@@ -1806,6 +1806,11 @@ body.modal-active {
 		color: #000000 !important;
 	}
 
+/* Tasto About: stato .active (dopo il click) — sfondo trasparente per non scurire la barra */
+	#header nav > ul > li a.active {
+		background-color: transparent !important;
+	}
+
 /* Tasto About: testo e icona bianchi, coerenti con il resto del menu */
 	#header nav > ul > li a.icon,
 	#header nav > ul > li a.icon:before {
