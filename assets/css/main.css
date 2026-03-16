@@ -2079,6 +2079,7 @@ body.modal-active {
     display: block !important; 
     column-count: 4; /* Numero di colonne su PC */
     column-gap: 20px; 
+	padding: 20px !important;
 }
 
 /* 2. Adattiamo i contenitori delle singole foto (thumb) */
