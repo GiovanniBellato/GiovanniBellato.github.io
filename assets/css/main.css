@@ -1806,25 +1806,18 @@ body.modal-active {
 		color: #000000 !important;
 	}
 
+/* Tasto About: testo e icona bianchi, coerenti con il resto del menu */
+	#header nav > ul > li a.icon,
 	#header nav > ul > li a.icon:before {
-		color: #555555 !important;
+		color: #ffffff !important;
+		float: none;
+		margin-right: 0.4em;
+		margin-left: 0;
 	}
-
-/* Tasto About: icona e testo allineati al colore del menu */
-	#header nav > ul > li a.icon {
-		color: #555555 !important;
-	}
-
-		#header nav > ul > li a.icon:before {
-			color: #555555 !important;
-			float: none;
-			margin-right: 0.4em;
-			margin-left: 0;
-		}
 
 		#header nav > ul > li a.icon:hover,
 		#header nav > ul > li a.icon:hover:before {
-			color: #000000 !important;
+			color: #ffffff !important;
 		}
 
 @media screen and (max-width: 736px) {
