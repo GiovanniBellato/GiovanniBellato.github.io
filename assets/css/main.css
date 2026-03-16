@@ -1765,6 +1765,21 @@ body.modal-active {
     line-height: 0;
 }
 
+/* Rimuove lo sfondo CSS del template, mostra il vero <img> */
+#main .thumb > .image {
+    position: relative !important;
+    height: auto !important;
+    background-image: none !important;
+}
+
+#main .thumb > .image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 /* Panoramiche: occupano 2 colonne */
 #main .thumb.wide {
     width: calc(50% - 8px) !important; /* 2 colonne: (100% - 1 gap da 16px) / 2 */
