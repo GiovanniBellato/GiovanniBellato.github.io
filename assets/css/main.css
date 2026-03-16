@@ -2115,6 +2115,39 @@ body.modal-active {
     opacity: 1 !important; /* Il template originale a volte le nasconde */
 }
 
+#header {
+    background: #f5f5f2 !important; 
+}
+
+/* 2. Ingrandiamo e adattiamo il colore del Titolo a sinistra */
+#header h1 {
+    font-size: 1.3em !important; /* Aumentato (prima era 1em) */
+    color: #333333 !important;   /* Grigio scuro per risaltare sullo sfondo chiaro */
+    font-weight: 400 !important; /* Leggermente più marcato per importanza */
+}
+
+/* 3. Ingrandiamo e adattiamo i link a destra (es. About / Contact) */
+#header nav > ul > li a {
+    font-size: 1.1em !important; /* Aumentato (prima era la misura base) */
+    color: #555555 !important;   /* Testo scuro */
+}
+
+/* 4. Effetto Hover: quando il mouse passa sopra ai link */
+#header nav > ul > li a:hover {
+    color: #000000 !important;   /* Diventa nero totale */
+}
+
+/* 5. Scurisce anche l'eventuale icona vicino al menu */
+#header nav > ul > li a.icon:before {
+    color: #555555 !important;
+}
+
+/* 6. Adattamento delle dimensioni per i cellulari */
+@media screen and (max-width: 736px) {
+    #header h1 { font-size: 1.1em !important; }
+    #header nav > ul > li a { font-size: 1em !important; }
+}
+
 /* 5. Rendiamo il tutto Responsive per tablet e cellulari */
 @media screen and (max-width: 1680px) {
     #main { column-count: 4; }
