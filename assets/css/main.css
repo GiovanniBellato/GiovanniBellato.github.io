@@ -1764,6 +1764,21 @@ body.modal-active {
     line-height: 0;
 }
 
+/* Rimuove lo sfondo CSS del template, mostra il vero <img> */
+#main .thumb > .image {
+    position: relative !important;
+    height: auto !important;
+    background-image: none !important;
+}
+
+#main .thumb > .image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 @media screen and (max-width: 1280px) { #main .thumb { width: calc(33.333% - 14px) !important; } }
 @media screen and (max-width: 980px)  { #main .thumb { width: calc(50% - 10px) !important; } }
 @media screen and (max-width: 480px)  { #main .thumb { width: calc(100%) !important; } }
