@@ -2078,7 +2078,7 @@ body.modal-active {
 #main {
     display: block !important; 
     column-count: 4; /* Numero di colonne su PC */
-    column-gap: 0; /* Nessuno spazio tra le colonne, in stile Multiverse */
+    column-gap: 30px; 
 }
 
 /* 2. Adattiamo i contenitori delle singole foto (thumb) */
@@ -2087,7 +2087,7 @@ body.modal-active {
     height: auto !important; /* Rimuove l'altezza fissa che ritagliava le foto */
     min-height: 0 !important;
     break-inside: avoid; /* Evita che una foto venga spezzata tra due colonne */
-    margin: 0 !important;
+    margin: 30px !important;
     display: inline-block; /* Necessario per il masonry fluido */
 }
 
