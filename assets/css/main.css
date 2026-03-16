@@ -1811,6 +1811,12 @@ body.modal-active {
 		background-color: transparent !important;
 	}
 
+	#header h1 .portfolio-label {
+    color: #34a58e;       /* verde accento, lo stesso dei link */
+    font-weight: 400;
+    letter-spacing: 0.15em;
+}
+
 /* Tasto About: testo e icona bianchi, coerenti con il resto del menu */
 	#header nav > ul > li a.icon,
 	#header nav > ul > li a.icon:before {
