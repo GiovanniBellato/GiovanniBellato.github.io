@@ -2078,17 +2078,24 @@ body.modal-active {
 #main {
     display: block !important; 
     column-count: 4; /* Numero di colonne su PC */
-    column-gap: 30px; 
+    column-gap: 20px; 
 }
 
 /* 2. Adattiamo i contenitori delle singole foto (thumb) */
 #main .thumb {
-    width: 100% !important; /* Usa tutta la larghezza della colonna */
-    height: auto !important; /* Rimuove l'altezza fissa che ritagliava le foto */
+    width: 100% !important;
+    height: auto !important;
     min-height: 0 !important;
-    break-inside: avoid; /* Evita che una foto venga spezzata tra due colonne */
-    margin: 30px !important;
-    display: inline-block; /* Necessario per il masonry fluido */
+    
+    /* Regole cruciali per evitare margini sballati */
+    display: block !important; /* Usa block al posto di inline-block */
+    margin: 0 0 20px 0 !important; /* Azzera sopra/lati, mette 20px SOLO sotto */
+    break-inside: avoid;
+    page-break-inside: avoid; /* Per sicurezza su browser vecchi */
+    -webkit-column-break-inside: avoid;
+    
+    /* Previene spazi extra creati dal testo nascosto */
+    line-height: 0; 
 }
 
 /* 3. Disabilitiamo lo sfondo ritagliato generato dal template */
