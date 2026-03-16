@@ -1738,26 +1738,27 @@ body.modal-active {
 
 
 /* ============================================================
-   OVERRIDE LAYOUT MASONRY (#main)
-   Sovrascrive il layout flex del template originale con un
-   layout Masonry.js a colonne proporzionali.
+   OVERRIDE LAYOUT CSS COLUMNS
+   Layout a colonne CSS puro — nessuna dipendenza da JS.
+   Le foto mantengono le proporzioni reali, le panoramiche
+   si allargano naturalmente nella colonna.
    ============================================================ */
 
 #main {
     display: block !important;
-    padding: 8px !important;
+    column-count: 4 !important;
+    column-gap: 12px !important;
+    padding: 12px !important;
 }
 
-/* Larghezze in % pure — Masonry usa queste per posizionare le colonne.
-   Il gutter nello script JS è 0, la spaziatura è gestita solo col margin. */
-#main .grid-sizer { width: 24% !important; }
-#main .thumb      { width: 24% !important; margin: 0.5% !important; }
-#main .thumb.wide { width: 49% !important; }
-
 #main .thumb {
+    width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     display: block !important;
+    margin: 0 0 12px 0 !important;
+    break-inside: avoid !important;
+    -webkit-column-break-inside: avoid !important;
     line-height: 0;
 }
 
@@ -1778,23 +1779,17 @@ body.modal-active {
 
 /* Tablet largo: 3 colonne */
 @media screen and (max-width: 1280px) {
-    #main .grid-sizer { width: 32.333% !important; }
-    #main .thumb      { width: 32.333% !important; }
-    #main .thumb.wide { width: 65.666% !important; }
+    #main { column-count: 3 !important; }
 }
 
 /* Tablet: 2 colonne */
 @media screen and (max-width: 980px) {
-    #main .grid-sizer { width: 49% !important; }
-    #main .thumb      { width: 49% !important; }
-    #main .thumb.wide { width: 99% !important; }
+    #main { column-count: 2 !important; }
 }
 
 /* Mobile: 1 colonna */
 @media screen and (max-width: 480px) {
-    #main .grid-sizer,
-    #main .thumb,
-    #main .thumb.wide { width: 99% !important; }
+    #main { column-count: 1 !important; }
 }
 
 

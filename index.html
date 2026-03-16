@@ -25,7 +25,6 @@
 
 				<!-- Main -->
 					<div id="main">
-						<div class="grid-sizer"></div>
 						<article class="thumb">
 							<a href="https://res.cloudinary.com/dtvnu3gme/image/upload/v1773678943/DSCF2416_dvepms.jpg" class="image"><img src="https://res.cloudinary.com/dtvnu3gme/image/upload/v1773678943/DSCF2416_dvepms.jpg" alt="" /></a>
 							<h2></h2>
@@ -169,24 +168,7 @@
   				new simpleParallax(images, { scale: 1.2, delay: 0.1 });
 			</script>
 
-			<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-			<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-			<script>
-				imagesLoaded('#main', function() {
-					document.querySelectorAll('#main .thumb img').forEach(function(img) {
-						var ratio = img.naturalWidth / img.naturalHeight;
-						if (ratio > 1.6) {
-							img.closest('.thumb').classList.add('wide');
-						}
-					});
-					new Masonry('#main', {
-						itemSelector: '.thumb',
-						columnWidth: '.grid-sizer',
-						percentPosition: true,
-						gutter: 0
-					});
-				});
-			</script>
+
 
 	</body>
 
