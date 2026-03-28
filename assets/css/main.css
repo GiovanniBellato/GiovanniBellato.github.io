@@ -1745,12 +1745,10 @@ body.modal-active {
    ============================================================ */
 
 #main {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 28px !important;
+    display: block !important;
+    column-count: 3 !important;
+    column-gap: 28px !important;
     padding: 28px !important;
-    align-items: start !important;
-    grid-auto-rows: auto !important;
 }
 
 #main .thumb {
@@ -1758,7 +1756,7 @@ body.modal-active {
     height: auto !important;
     min-height: 0 !important;
     display: block !important;
-    margin: 0 !important;
+    margin: 0 0 28px 0 !important;
     break-inside: avoid !important;
     -webkit-column-break-inside: avoid !important;
     line-height: 0;
@@ -1772,8 +1770,6 @@ body.modal-active {
     background-image: none !important;
 }
 
-/* Fix area grigia e spazi vuoti di simpleParallax:
-   il plugin wrappa le img in un div con altezza 1.2x — lo forziamo a seguire l'immagine */
 #main .thumb {
     overflow: hidden !important;
 }
@@ -1795,17 +1791,17 @@ body.modal-active {
 
 /* Tablet largo: 2 colonne */
 @media screen and (max-width: 1280px) {
-    #main { grid-template-columns: 1fr 1fr !important; }
+    #main { column-count: 2 !important; }
 }
 
-/* Tablet: 1 colonna */
+/* Tablet: 2 colonne */
 @media screen and (max-width: 980px) {
-    #main { grid-template-columns: 1fr !important; }
+    #main { column-count: 2 !important; }
 }
 
 /* Mobile: 1 colonna */
 @media screen and (max-width: 480px) {
-    #main { grid-template-columns: 1fr !important; }
+    #main { column-count: 1 !important; }
 }
 
 
@@ -1887,10 +1883,10 @@ body.modal-active {
    dello schermo per mantenere le immagini leggibili.
    ============================================================ */
 
-@media screen and (max-width: 1680px) { #main { grid-template-columns: 1fr 1fr; } }
-@media screen and (max-width: 1280px) { #main { grid-template-columns: 1fr 1fr; } }
-@media screen and (max-width: 980px)  { #main { grid-template-columns: 1fr; } }
-@media screen and (max-width: 480px)  { #main { grid-template-columns: 1fr; } }
+@media screen and (max-width: 1680px) { #main { column-count: 3; } }
+@media screen and (max-width: 1280px) { #main { column-count: 2; } }
+@media screen and (max-width: 980px)  { #main { column-count: 2; } }
+@media screen and (max-width: 480px)  { #main { column-count: 1; } }
 
 
 /* ============================================================
