@@ -1484,40 +1484,47 @@ body {
 
 
 /* ============================================================
-   MAIN (griglia delle miniature)
-   Contiene tutte le anteprime foto (.thumb). Gestisce blur
-   e overlay quando il panel è aperto, e anima le thumb
-   in entrata con transition-delay scalati per ogni elemento.
+   MAIN — GRIGLIA DELLE MINIATURE (template originale)
+
+   Questo blocco gestisce tre cose che il template fa da solo:
+
+   1. BLUR + OVERLAY: quando clicchi "About", la griglia
+      si sfoca e un overlay grigio appare sopra le foto.
+      Questo effetto è controllato dalla classe .content-active
+      aggiunta al <body> da main.js.
+
+   2. ANIMAZIONE DI ENTRATA: ogni .thumb appare in dissolvenza
+      al caricamento della pagina. Le foto partono invisibili
+      (opacity: 0 su body.is-preload) e appaiono in sequenza
+      grazie ai transition-delay scaglionati su :nth-child.
+
+   3. SFUMATURA SULLE FOTO: il pseudo-elemento :after su ogni
+      .thumb aggiunge una sfumatura scura in basso, utile per
+      leggere eventuali titoli sovrapposti.
+
+   NOTA: width e height del .thumb originale sono sovrascritti
+   dai nostri override più in basso — non modificare questo blocco.
    ============================================================ */
 
 #main {
 	-webkit-transition: filter 0.5s ease;
 	transition: filter 0.5s ease;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-moz-flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
-	flex-wrap: wrap;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
+	/* Ogni miniatura: opacità animata per l'entrata in scena */
 	#main .thumb {
 		-webkit-transition: opacity 1.25s ease-in-out;
 		transition: opacity 1.25s ease-in-out;
 		pointer-events: auto;
 		-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 		opacity: 1;
-		overflow: hidden;
 		position: relative;
 	}
 
-		/* Sfumatura scura in basso su ogni thumb */
+		/* Sfumatura scura in basso su ogni foto, utile per i titoli */
 		#main .thumb:after {
-			background-image:
-				-webkit-linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
-			background-image:
-				linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
+			background-image: linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
 			pointer-events: none;
 			background-size: cover;
 			content: '';
@@ -1529,21 +1536,7 @@ body {
 			width: 100%;
 		}
 
-		/* Immagine di sfondo del thumb (template originale) */
-		#main .thumb > .image {
-			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			border: 0;
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-		/* Titolo sovrapposto in basso a sinistra */
+		/* Titolo sovrapposto in basso a sinistra (vuoto nelle tue foto) */
 		#main .thumb > h2 {
 			pointer-events: none;
 			bottom: 1.875em;
@@ -1554,11 +1547,13 @@ body {
 			z-index: 1;
 		}
 
+		/* La didascalia con la data è nascosta nella griglia,
+		   compare solo nel lightbox */
 		#main .thumb > p {
 			display: none;
 		}
 
-	/* Overlay grigio attivato quando il panel è aperto */
+	/* Overlay grigio attivato quando il panel "About" è aperto */
 	#main:after {
 		pointer-events: none;
 		-webkit-transition: opacity 0.5s ease, visibility 0.5s;
@@ -1576,12 +1571,8 @@ body {
 		z-index: 1;
 	}
 
-		body.ie #main:after {
-			background: rgba(36, 38, 41, 0.55);
-		}
-
+	/* Blur + overlay visibili quando il panel è aperto */
 	body.content-active #main {
-		-moz-filter: blur(6px);
 		-webkit-filter: blur(6px);
 		filter: blur(6px);
 	}
@@ -1592,25 +1583,14 @@ body {
 			visibility: visible;
 		}
 
-	/* Stato iniziale: thumb invisibili prima del caricamento */
+	/* Prima del caricamento completo le thumb sono invisibili */
 	body.is-preload #main .thumb {
 		pointer-events: none;
 		opacity: 0;
 	}
 
-	/* ---- Layout responsive + transition-delay scaglionati ----
-	   I delay crescenti creano l'effetto di comparsa sequenziale
-	   delle thumb al caricamento della pagina.
-	   ---------------------------------------------------------- */
-
-	/* Desktop ≥ 1681px: 4 colonne, 25% larghezza */
-	#main .thumb {
-		transition-delay: 2.525s;
-		height: calc(40vh - 2em);
-		min-height: auto;
-		width: 25%;
-	}
-
+	/* Delay scaglionati per l'animazione di entrata sequenziale:
+	   ogni foto appare leggermente dopo la precedente */
 	#main .thumb:nth-child(1)  { transition-delay: 0.65s; }
 	#main .thumb:nth-child(2)  { transition-delay: 0.8s; }
 	#main .thumb:nth-child(3)  { transition-delay: 0.95s; }
@@ -1623,85 +1603,10 @@ body {
 	#main .thumb:nth-child(10) { transition-delay: 2s; }
 	#main .thumb:nth-child(11) { transition-delay: 2.15s; }
 	#main .thumb:nth-child(12) { transition-delay: 2.3s; }
-
-	/* Tablet largo ≤ 1680px: 4 colonne, 25% larghezza */
-	@media screen and (max-width: 1680px) {
-
-		#main .thumb {
-			transition-delay: 2.075s;
-			height: calc(40vh - 2em);
-			min-height: 20em;
-			width: 25%;
-		}
-
-		#main .thumb:nth-child(1) { transition-delay: 0.65s; }
-		#main .thumb:nth-child(2) { transition-delay: 0.8s; }
-		#main .thumb:nth-child(3) { transition-delay: 0.95s; }
-		#main .thumb:nth-child(4) { transition-delay: 1.1s; }
-		#main .thumb:nth-child(5) { transition-delay: 1.25s; }
-		#main .thumb:nth-child(6) { transition-delay: 1.4s; }
-		#main .thumb:nth-child(7) { transition-delay: 1.55s; }
-		#main .thumb:nth-child(8) { transition-delay: 1.7s; }
-		#main .thumb:nth-child(9) { transition-delay: 1.85s; }
-
-	}
-
-	/* Tablet ≤ 1280px: 2 colonne, 50% larghezza */
-	@media screen and (max-width: 1280px) {
-
-		#main .thumb {
-			transition-delay: 1.625s;
-			height: calc(40vh - 2em);
-			min-height: 20em;
-			width: 50%;
-		}
-
-		#main .thumb:nth-child(1) { transition-delay: 0.65s; }
-		#main .thumb:nth-child(2) { transition-delay: 0.8s; }
-		#main .thumb:nth-child(3) { transition-delay: 0.95s; }
-		#main .thumb:nth-child(4) { transition-delay: 1.1s; }
-		#main .thumb:nth-child(5) { transition-delay: 1.25s; }
-		#main .thumb:nth-child(6) { transition-delay: 1.4s; }
-
-	}
-
-	/* Tablet piccolo ≤ 980px: 2 colonne */
-	@media screen and (max-width: 980px) {
-
-		#main .thumb {
-			transition-delay: 2.075s;
-			height: calc(28.57143vh - 1.33333em);
-			min-height: 18em;
-			width: 50%;
-		}
-
-		#main .thumb:nth-child(1) { transition-delay: 0.65s; }
-		#main .thumb:nth-child(2) { transition-delay: 0.8s; }
-		#main .thumb:nth-child(3) { transition-delay: 0.95s; }
-		#main .thumb:nth-child(4) { transition-delay: 1.1s; }
-		#main .thumb:nth-child(5) { transition-delay: 1.25s; }
-		#main .thumb:nth-child(6) { transition-delay: 1.4s; }
-		#main .thumb:nth-child(7) { transition-delay: 1.55s; }
-		#main .thumb:nth-child(8) { transition-delay: 1.7s; }
-		#main .thumb:nth-child(9) { transition-delay: 1.85s; }
-
-	}
-
-	/* Mobile ≤ 480px: 1 colonna, larghezza piena */
-	@media screen and (max-width: 480px) {
-
-		#main .thumb {
-			transition-delay: 1.175s;
-			height: calc(40vh - 2em);
-			min-height: 18em;
-			width: 100%;
-		}
-
-		#main .thumb:nth-child(1) { transition-delay: 0.65s; }
-		#main .thumb:nth-child(2) { transition-delay: 0.8s; }
-		#main .thumb:nth-child(3) { transition-delay: 0.95s; }
-
-	}
+	#main .thumb:nth-child(13) { transition-delay: 2.45s; }
+	#main .thumb:nth-child(14) { transition-delay: 2.6s; }
+	#main .thumb:nth-child(15) { transition-delay: 2.75s; }
+	#main .thumb:nth-child(16) { transition-delay: 2.9s; }
 
 
 /* ============================================================
@@ -1738,42 +1643,52 @@ body.modal-active {
 
 
 /* ============================================================
-   OVERRIDE LAYOUT CSS COLUMNS
-   Layout a colonne CSS puro — nessuna dipendenza da JS.
-   Le foto mantengono le proporzioni reali, le panoramiche
-   si allargano naturalmente nella colonna.
+   LAYOUT MASONRY — OVERRIDE PRINCIPALE
+   ============================================================
+
+   Il template originale usava un layout flex con thumbnail a
+   dimensioni fisse (height: 40vh, width: 25%). Noi lo sostituiamo
+   con un layout a colonne CSS (column-count), che è il modo più
+   semplice per ottenere un effetto masonry: le foto si impilano
+   in colonne mantenendo le loro proporzioni reali, e quelle
+   panoramiche si allargano naturalmente nella colonna.
+
+   Gli "!important" servono a sovrascrivere i valori del template
+   originale che altrimenti avrebbero la precedenza.
    ============================================================ */
 
 #main {
-    display: block !important;
-    column-count: 3 !important;
-    column-gap: 28px !important;
-    padding: 28px !important;
+    display: block !important;         /* annulla il flex del template */
+    column-count: 3 !important;        /* 3 colonne su desktop */
+    column-gap: 28px !important;       /* spazio orizzontale tra colonne */
+    padding: 28px !important;          /* margine esterno attorno alla griglia */
 }
 
+/* Ogni singola foto nella griglia */
 #main .thumb {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
+    width: 100% !important;            /* occupa tutta la larghezza della colonna */
+    height: auto !important;           /* altezza automatica: segue le proporzioni dell'immagine */
+    min-height: 0 !important;          /* annulla il min-height fisso del template */
     display: block !important;
-    margin: 0 0 28px 0 !important;
-    break-inside: avoid !important;
+    margin: 0 0 28px 0 !important;     /* spazio verticale tra una foto e la successiva */
+    break-inside: avoid !important;    /* evita che una foto venga spezzata tra due colonne */
     -webkit-column-break-inside: avoid !important;
-    line-height: 0;
-    align-self: start !important;
+    overflow: hidden !important;       /* nasconde l'area grigia extra generata da simpleParallax */
+    line-height: 0;                    /* rimuove lo spazio fantasma sotto le immagini inline */
 }
 
-/* Rimuove lo sfondo CSS del template, mostra il vero <img> */
+/* Il link .image che avvolge ogni <img>:
+   nel template originale era position:absolute per coprire il thumb,
+   qui lo riportiamo al flusso normale */
 #main .thumb > .image {
     position: relative !important;
     height: auto !important;
-    background-image: none !important;
+    background-image: none !important; /* il template usava background-image; noi usiamo il vero <img> */
 }
 
-#main .thumb {
-    overflow: hidden !important;
-}
-
+/* simpleParallax wrappa ogni <img> in un <div> con overflow:hidden
+   e un'altezza calcolata sulla scala (1.2x). Questo div viene forzato
+   a non avere spazio extra visibile. */
 #main .thumb .simple-parallax-initialized {
     overflow: hidden !important;
     height: auto !important;
@@ -1781,34 +1696,42 @@ body.modal-active {
     line-height: 0 !important;
 }
 
+/* L'immagine vera: sempre visibile e larga quanto la colonna */
 #main .thumb > .image img {
     display: block !important;
     width: 100% !important;
     height: auto !important;
-    visibility: visible !important;
+    visibility: visible !important;    /* il template la nascondeva per usare background-image */
     opacity: 1 !important;
-}
-
-/* Tablet largo: 2 colonne */
-@media screen and (max-width: 1280px) {
-    #main { column-count: 2 !important; }
-}
-
-/* Tablet: 2 colonne */
-@media screen and (max-width: 980px) {
-    #main { column-count: 2 !important; }
-}
-
-/* Mobile: 1 colonna */
-@media screen and (max-width: 480px) {
-    #main { column-count: 1 !important; }
 }
 
 
 /* ============================================================
+   LAYOUT RESPONSIVO — quante colonne a ogni larghezza
+   ============================================================
+
+   Regola generale: più lo schermo è stretto, meno colonne.
+   Su tablet passiamo a 2 colonne, su mobile a 1 sola.
+
+   Come funziona @media screen and (max-width: Xpx):
+   "applica queste regole solo se lo schermo è largo al massimo X pixel"
+   ============================================================ */
+
+@media screen and (max-width: 1280px) { #main { column-count: 2 !important; } }
+@media screen and (max-width: 980px)  { #main { column-count: 2 !important; } }
+@media screen and (max-width: 480px)  { #main { column-count: 1 !important; } }
+
+
+/* ============================================================
    OVERRIDE HEADER (tema chiaro)
-   Adatta l'header al tema chiaro (#f5f5f2) con testi scuri
-   per garantire il contrasto su sfondo beige.
+   ============================================================
+
+   Il template originale ha uno sfondo scuro (#1f2224) sull'header.
+   Qui lo sovrascriviamo per adattarlo al tema chiaro (#f5f5f2)
+   con testi scuri che garantiscono contrasto su sfondo beige.
+
+   Nota: il colore #34a58e è il verde accento usato in tutto il sito
+   (link, bottoni attivi, focus dei form).
    ============================================================ */
 
 #header {
@@ -1857,9 +1780,14 @@ body.modal-active {
 
 
 /* ============================================================
-   OVERRIDE POPTROX (tema chiaro)
-   Adatta il popup lightbox al tema chiaro con ombra morbida
-   e rimozione delle sfumature scure laterali.
+   OVERRIDE POPTROX (lightbox — tema chiaro)
+   ============================================================
+
+   Poptrox è il plugin jQuery che gestisce il lightbox: quando clicchi
+   una foto si apre un popup a schermo intero con navigazione.
+   Il template originale usa sfondi scuri; qui li adattiamo al tema chiaro.
+
+   #wrapper:after è l'overlay semitrasparente che appare dietro il popup.
    ============================================================ */
 
 #wrapper:after {
@@ -1877,22 +1805,18 @@ body.modal-active {
 }
 
 
-/* ============================================================
-   RESPONSIVE COLONNE MASONRY
-   Riduce il numero di colonne al diminuire della larghezza
-   dello schermo per mantenere le immagini leggibili.
-   ============================================================ */
-
-@media screen and (max-width: 1680px) { #main { column-count: 3; } }
-@media screen and (max-width: 1280px) { #main { column-count: 2; } }
-@media screen and (max-width: 980px)  { #main { column-count: 2; } }
-@media screen and (max-width: 480px)  { #main { column-count: 1; } }
 
 
 /* ============================================================
    OVERRIDE PANEL (tema chiaro)
-   Porta il pannello About allo stesso tema chiaro (#f5f5f2)
-   della homepage: sfondo beige, testi scuri, bordo sottile in cima.
+   ============================================================
+
+   Il pannello "About/Contact" scivola su dalla parte inferiore
+   dello schermo (o dall'alto su mobile) quando clicchi il tasto About.
+   Il template originale lo aveva scuro; qui lo adattiamo al tema chiaro.
+
+   Tutto ciò che trovi qui sotto con !important sovrascrive i colori
+   di testo, sfondo e bordi definiti nella sezione PANEL originale.
    ============================================================ */
 
 .panel {
