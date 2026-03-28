@@ -1871,7 +1871,7 @@ body.modal-active {
    dello schermo per mantenere le immagini leggibili.
    ============================================================ */
 
-@media screen and (max-width: 1680px) { #main { column-count: 3; } }
+@media screen and (max-width: 1680px) { #main { column-count: 2; } }
 @media screen and (max-width: 1280px) { #main { column-count: 2; } }
 @media screen and (max-width: 980px)  { #main { column-count: 2; } }
 @media screen and (max-width: 480px)  { #main { column-count: 1; } }
