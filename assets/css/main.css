@@ -1746,7 +1746,7 @@ body.modal-active {
 
 #main {
     display: block !important;
-    column-count: 4 !important;
+    column-count: 3 !important;
     column-gap: 12px !important;
     padding: 12px !important;
 }
@@ -1777,9 +1777,9 @@ body.modal-active {
     opacity: 1 !important;
 }
 
-/* Tablet largo: 3 colonne */
+/* Tablet largo: 2 colonne */
 @media screen and (max-width: 1280px) {
-    #main { column-count: 3 !important; }
+    #main { column-count: 2 !important; }
 }
 
 /* Tablet: 2 colonne */
@@ -1871,8 +1871,8 @@ body.modal-active {
    dello schermo per mantenere le immagini leggibili.
    ============================================================ */
 
-@media screen and (max-width: 1680px) { #main { column-count: 4; } }
-@media screen and (max-width: 1280px) { #main { column-count: 3; } }
+@media screen and (max-width: 1680px) { #main { column-count: 3; } }
+@media screen and (max-width: 1280px) { #main { column-count: 2; } }
 @media screen and (max-width: 980px)  { #main { column-count: 2; } }
 @media screen and (max-width: 480px)  { #main { column-count: 1; } }
 
