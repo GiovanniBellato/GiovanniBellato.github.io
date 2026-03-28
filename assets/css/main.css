@@ -1749,6 +1749,7 @@ body.modal-active {
     grid-template-columns: 1fr 1fr !important;
     gap: 28px !important;
     padding: 28px !important;
+    align-items: start !important;
 }
 
 #main .thumb {
@@ -1767,6 +1768,18 @@ body.modal-active {
     position: relative !important;
     height: auto !important;
     background-image: none !important;
+}
+
+/* Fix area grigia simpleParallax: il plugin scala l'immagine a 1.2x
+   e il div wrapper mostra lo spazio vuoto extra. Lo nascondiamo con overflow hidden
+   sul thumb e forziamo il wrapper ad adattarsi all'immagine */
+#main .thumb {
+    overflow: hidden !important;
+}
+
+#main .thumb .simple-parallax-initialized {
+    overflow: hidden !important;
+    height: auto !important;
 }
 
 #main .thumb > .image img {
