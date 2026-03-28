@@ -1746,7 +1746,7 @@ body.modal-active {
 
 #main {
     display: block !important;
-    column-count: 3 !important;
+    column-count: 2 !important;
     column-gap: 28px !important;
     padding: 28px !important;
 }
@@ -1782,9 +1782,9 @@ body.modal-active {
     #main { column-count: 2 !important; }
 }
 
-/* Tablet: 2 colonne */
+/* Tablet: 1 colonna */
 @media screen and (max-width: 980px) {
-    #main { column-count: 2 !important; }
+    #main { column-count: 1 !important; }
 }
 
 /* Mobile: 1 colonna */
@@ -1873,7 +1873,7 @@ body.modal-active {
 
 @media screen and (max-width: 1680px) { #main { column-count: 2; } }
 @media screen and (max-width: 1280px) { #main { column-count: 2; } }
-@media screen and (max-width: 980px)  { #main { column-count: 2; } }
+@media screen and (max-width: 980px)  { #main { column-count: 1; } }
 @media screen and (max-width: 480px)  { #main { column-count: 1; } }
 
 
