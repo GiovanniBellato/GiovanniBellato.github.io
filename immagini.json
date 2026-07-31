@@ -1,14 +1,14 @@
 [
   {
     "trip": "Ravenna",
-    "date": "2026-02-22",
+    "date": "2026.02.22",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1773678943/DSCF2416_dvepms.jpg", "alt": "" }
     ]
   },
   {
     "trip": "Monte Cengio",
-    "date": "2026-01-17",
+    "date": "2026.01.17",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1772039691/DSC01988_tfosdq.jpg", "alt": "" },
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1772039695/DSC01966_donqbn.jpg", "alt": "" }
@@ -16,14 +16,14 @@
   },
   {
     "trip": "Cesena",
-    "date": "2025-09-24",
+    "date": "2025.09.24",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767278742/DSC00018_verkve.jpg", "alt": "" }
     ]
   },
   {
     "trip": "Asiago",
-    "date": "2025-07-29",
+    "date": "2025.07.29",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767278743/DSC01238_webu1g.jpg", "alt": "" },
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767278742/DSC01317_sobcec.jpg", "alt": "" }
@@ -31,7 +31,7 @@
   },
   {
     "trip": "Venezia",
-    "date": "2025-07-25",
+    "date": "2025.07.25",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047986/DSC01171_zylbjw.jpg", "alt": "" },
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047986/DSC01143_spjt8f.jpg", "alt": "" },
@@ -40,7 +40,7 @@
   },
   {
     "trip": "Levico Terme",
-    "date": "2025-07-08",
+    "date": "2025.07.08",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047985/DSC01094_p9p3hs.jpg", "alt": "" },
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047985/DSC01081_aiwfvm.jpg", "alt": "" }
@@ -48,7 +48,7 @@
   },
   {
     "trip": "Islanda",
-    "date": "2025-04-11",
+    "date": "2025.04.11",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767048035/IMG_7355_xr9n9b.jpg", "alt": "Pouring sky" },
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767048035/IMG_7790_s11lwy.jpg", "alt": "" }
@@ -56,21 +56,21 @@
   },
   {
     "trip": "Stoccolma",
-    "date": "2024-12-11",
+    "date": "2024.12.11",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047986/DSCF1779_lpefvd.jpg", "alt": "" }
     ]
   },
   {
     "trip": "Toscana",
-    "date": "2024-07-26",
+    "date": "2024.07.26",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047987/DSCF1509_yjzzjs.jpg", "alt": "" }
     ]
   },
   {
     "trip": "Milano",
-    "date": "2024-07-19",
+    "date": "2024.07.19",
     "foto": [
       { "src": "https://res.cloudinary.com/dtvnu3gme/image/upload/v1767047987/DSCF1579_nptok1.jpg", "alt": "" }
     ]
