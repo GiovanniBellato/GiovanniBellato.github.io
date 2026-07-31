@@ -10,7 +10,7 @@ const Fullscreen = {
     },
     methods:{
         getData: function(){
-            axios.get("./immagini.json")
+            axios.get("immagini.json")
                 .then(response => {
                     this.viaggi = response.data;
                     this.$nextTick(() => {
