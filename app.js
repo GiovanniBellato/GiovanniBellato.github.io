@@ -1,3 +1,51 @@
+// ------------------------------------------------------------------
+// Configurazione Cloudinary: legge le foto direttamente dal tuo
+// account tramite l'elenco risorse per tag (client-side resource list),
+// niente più immagini.json da aggiornare a mano.
+//
+// SETUP RICHIESTO SU CLOUDINARY (una tantum):
+//   1. Console -> Settings -> Security -> disattiva la restrizione
+//      su "Resource list".
+//   2. Ad ogni foto che carichi, aggiungi:
+//        - il tag CLOUDINARY_TAG (sotto), cosi viene inclusa nell'elenco
+//        - i "context" (metadata): trip, date (formato AAAA.MM.GG), alt
+//      (dalla Media Library: seleziona le foto -> tasto destro ->
+//       Add Tag / Edit contextual metadata)
+// ------------------------------------------------------------------
+const CLOUDINARY_CLOUD_NAME = "dtvnu3gme";
+const CLOUDINARY_TAG = "portfolio";
+
+let viaggiCache = null; // evita di richiamare Cloudinary due volte (Fullscreen + Gallery)
+
+function caricaViaggi() {
+    if (viaggiCache) return Promise.resolve(viaggiCache);
+
+    const url = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/list/${CLOUDINARY_TAG}.json`;
+
+    return axios.get(url).then(response => {
+        const risorse = response.data.resources || [];
+        const mappa = {};
+
+        risorse.forEach(res => {
+            const ctx = res.context?.custom || {};
+            const trip = ctx.trip || "Senza titolo";
+            const date = ctx.date || "";
+            const chiave = trip + "|" + date;
+
+            if (!mappa[chiave]) {
+                mappa[chiave] = { trip, date, foto: [] };
+            }
+
+            const src = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/v${res.version}/${res.public_id}.${res.format}`;
+            mappa[chiave].foto.push({ src, alt: ctx.alt || "" });
+        });
+
+        // Viaggi dal più recente al meno recente (richiede date in formato AAAA.MM.GG)
+        viaggiCache = Object.values(mappa).sort((a, b) => b.date.localeCompare(a.date));
+        return viaggiCache;
+    });
+}
+
 const Fullscreen = {
     data(){
         return{
@@ -10,13 +58,12 @@ const Fullscreen = {
     },
     methods:{
         getData: function(){
-            axios.get("immagini.json")
-                .then(response => {
-                    this.viaggi = response.data;
-                    this.$nextTick(() => {
-                        this.embla = EmblaCarousel(this.$refs.emblaRef, { loop: false });
-                    });
+            caricaViaggi().then(viaggi => {
+                this.viaggi = viaggi;
+                this.$nextTick(() => {
+                    this.embla = EmblaCarousel(this.$refs.emblaRef, { loop: false });
                 });
+            });
         },
         prev(){
             if(this.embla) this.embla.scrollPrev();
@@ -136,10 +183,9 @@ const Gallery = {
     },
     methods:{
         getData: function(){
-            axios.get("./immagini.json")
-                .then(response =>{
-                    this.viaggi = response.data
-                });
+            caricaViaggi().then(viaggi => {
+                this.viaggi = viaggi;
+            });
         },
         apriFoto(foto) {
             this.fotoSelezionata = foto;
