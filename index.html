@@ -7,9 +7,14 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Inter:wght@300..600&display=swap" rel="stylesheet">
+
 	<style type="text/tailwindcss">
     @theme {
         --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+        --font-display: "Fraunces", "Georgia", serif;
 
         --color-page: #F8F8F6;
         --color-ink: #0f172a;
@@ -32,17 +37,17 @@
 			
 			<!-- header -->
 			<header class="w-1/2">
-				<h1>
+				<h1 class="font-display text-lg tracking-tight">
 					<router-link to="/">
-						<span class="text-muted">Portfolio</span> | Giovanni Bellato
+						<span class="text-muted font-sans text-sm align-middle">Portfolio</span> <span class="text-muted align-middle">|</span> Giovanni Bellato
 					</router-link>
 				</h1>
 			</header>
 
 			<!-- navigator -->
-			<nav class="flex w-1/2 justify-end">
-				<router-link to="/fullscreen"><h2 class="px-2">Fullscreen</h2></router-link>
-				<router-link to="/gallery"><h2 class="px-2">Gallery</h2></router-link>
+			<nav class="flex w-1/2 justify-end items-center">
+				<router-link to="/fullscreen"><h2 class="px-2 text-sm tracking-wide uppercase">Fullscreen</h2></router-link>
+				<router-link to="/gallery"><h2 class="px-2 text-sm tracking-wide uppercase">Gallery</h2></router-link>
 			</nav>
 
 		</section>
@@ -55,7 +60,7 @@
 			<div class="max-w-screen-xl py-8 mx-auto">
 			<div class="grid grid-cols-1 gap-8 text-center mx-auto">
 				<div>
-				<p class="font-signika"><b>GIOVANNI BELLATO</b></p>
+				<p class="font-display text-base tracking-wide"><b>GIOVANNI BELLATO</b></p>
 				<p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
 					Instagram non mi faceva pubblicare foto panoramiche.<br />Io amo le foto panoramiche.
 				</p>

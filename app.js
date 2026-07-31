@@ -94,8 +94,8 @@ const Fullscreen = {
                         </div>
                         
                         <div class="w-full flex-shrink-0 text-left pt-2 md:pt-4 pl-2 md:pl-6">
-                            <span class="text-[10px] md:text-xs text-muted uppercase tracking-widest pointer-events-none select-none">
-                                {{ viaggio.trip }} &mdash; {{ viaggio.date }}
+                            <span class="font-display italic text-sm md:text-base text-ink/80 tracking-wide pointer-events-none select-none">
+                                {{ viaggio.trip }} <span class="text-muted not-italic font-sans text-[10px] md:text-xs uppercase tracking-widest">&mdash; {{ viaggio.date }}</span>
                             </span>
                         </div>
 
