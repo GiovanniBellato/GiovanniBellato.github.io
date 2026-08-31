@@ -15,7 +15,7 @@
 const CLOUDINARY_CLOUD_NAME = "dtvnu3gme";
 const CLOUDINARY_TAG = "portfolio";
 
-let viaggiCache = null; // evita di richiamare Cloudinary due volte (Fullscreen + Gallery)
+let viaggiCache = null; // evita di richiamare Cloudinary due volte (Home + Gallery)
 
 function caricaViaggi() {
     if (viaggiCache) return Promise.resolve(viaggiCache);
@@ -46,7 +46,7 @@ function caricaViaggi() {
     });
 }
 
-const Fullscreen = {
+const Home = {
     data(){
         return{
             viaggi: null,
@@ -227,7 +227,7 @@ const Gallery = {
                     <!-- USIAMO getThumbnail E loading="lazy" -->
                     <img :src="getThumbnail(foto.src)" :alt="foto.alt" 
                          loading="lazy"
-                         class="w-full h-full object-cover group-hover:scale-105 group-hover:opacity-80 transition-all duration-300"/>
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"/>
                 
                 </div>
             </template>
@@ -251,8 +251,7 @@ const Gallery = {
 }
 
 const routes = [
-    {path:"/", redirect: "/fullscreen"},
-    {path:"/fullscreen", component: Fullscreen},
+    {path:"/", component: Home},
     {path:"/gallery", component: Gallery}
 ]
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>giovanni's portfolio</title>
+    <title>portfolio</title>
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 
@@ -46,7 +46,7 @@
 
 			<!-- navigator -->
 			<nav class="flex w-1/2 justify-end items-center">
-				<router-link to="/fullscreen"><h2 class="px-2 text-sm tracking-wide uppercase">Fullscreen</h2></router-link>
+				<router-link to="/"><h2 class="px-2 text-sm tracking-wide uppercase">Home</h2></router-link>
 				<router-link to="/gallery"><h2 class="px-2 text-sm tracking-wide uppercase">Gallery</h2></router-link>
 			</nav>
 
@@ -55,8 +55,8 @@
 		<main class="flex-1 min-h-0 overflow-y-auto">
 			<router-view></router-view>
 
-			<!-- Footer: visibile solo fuori dalla vista fullscreen -->
-			<footer v-if="$route.path !== '/fullscreen'">
+			<!-- Footer: visibile solo fuori dalla vista home -->
+			<footer v-if="$route.path !== '/'">
 			<div class="max-w-screen-xl py-8 mx-auto">
 			<div class="grid grid-cols-1 gap-8 text-center mx-auto">
 				<div>
